@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>IOSSS - Administrator Login</title>
+<style>
+    body { font-family: Arial, sans-serif; background:#f2f2f2; }
+    .box { max-width:400px; margin:80px auto; background:#fff; padding:30px;
+           border-radius:8px; box-shadow:0 0 10px rgba(0,0,0,0.15); text-align:center; }
+    select, button { width:100%; padding:10px; margin-top:15px; border-radius:5px; }
+    button { background:#1a4d2e; color:#fff; border:none; cursor:pointer; }
+</style>
+</head>
+<body>
+<div class="box">
+    <h2>Head Teacher / Administrator</h2>
+    <p>Select your school to view the list of selected candidates.</p>
+
+    <!-- GET request so the school name appears in the query string
+         for iosss_app_process.php's admin mode -->
+    <form action="iosss_app_process.php" method="GET">
+        <input type="hidden" name="admin" value="1">
+        <select name="school" required>
+            <option value="">-- Select School --</option>
+            <optgroup label="Boys' Schools">
+                <option value="Alliance High School">Alliance High School</option>
+                <option value="Mang'u High School">Mang'u High School</option>
+                <option value="Starehe Boys Centre">Starehe Boys Centre</option>
+                <option value="Nairobi School">Nairobi School</option>
+                <option value="Lenana School">Lenana School</option>
+                <option value="Kagumo High School">Kagumo High School</option>
+                <option value="Maranda High School">Maranda High School</option>
+                <option value="Kapsabet Boys High School">Kapsabet Boys High School</option>
+                <option value="Kabaa High School">Kabaa High School</option>
+                <option value="Nakuru Boys High School">Nakuru Boys High School</option>
+            </optgroup>
+            <optgroup label="Girls' Schools">
+                <option value="Alliance Girls High School">Alliance Girls High School</option>
+                <option value="Kenya High School">Kenya High School</option>
+                <option value="Moi Girls High School Nairobi">Moi Girls High School Nairobi</option>
+                <option value="Pangani Girls High School">Pangani Girls High School</option>
+                <option value="Precious Blood Riruta">Precious Blood Riruta</option>
+                <option value="Loreto High School Limuru">Loreto High School Limuru</option>
+                <option value="Butere Girls High School">Butere Girls High School</option>
+                <option value="Moi Girls High School Eldoret">Moi Girls High School Eldoret</option>
+                <option value="Ng'iya Girls High School">Ng'iya Girls High School</option>
+                <option value="Bishop Gatimu Ngandu Girls High School">Bishop Gatimu Ngandu Girls High School</option>
+            </optgroup>
+        </select>
+        <button type="submit">View Selected Students</button>
+    </form>
+</div>
+</body>
+</html>

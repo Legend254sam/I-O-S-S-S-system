@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>IOSSS - Candidate Application Form</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f2f2;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 25px 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+        }
+
+        h1 {
+            text-align: center;
+            color: #1a4d2e;
+            font-size: 22px;
+            line-height: 1.4;
+        }
+
+        h2 {
+            color: #1a4d2e;
+            border-bottom: 2px solid #1a4d2e;
+            padding-bottom: 5px;
+            font-size: 17px;
+            margin-top: 30px;
+        }
+
+        label {
+            display: block;
+            margin-top: 12px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="date"],
+        input[type="number"],
+        select {
+            width: 100%;
+            padding: 9px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        input:focus,
+        select:focus {
+            outline: none;
+            border-color: #1a4d2e;
+        }
+
+        .radio-group {
+            margin-top: 8px;
+        }
+
+        .radio-group label {
+            display: inline-block;
+            font-weight: normal;
+            margin: 0 20px 0 0;
+        }
+
+        .subjects {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0 20px;
+        }
+
+        .choices-table {
+            width: 100%;
+            margin-top: 10px;
+            border-collapse: collapse;
+        }
+
+        .choices-table th,
+        .choices-table td {
+            padding: 8px;
+            text-align: left;
+            vertical-align: middle;
+        }
+
+        .choices-table label {
+            margin-top: 0;
+        }
+
+        .note {
+            font-size: 12px;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 25px;
+            padding: 12px;
+            background: #1a4d2e;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #123a22;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+
+            .subjects {
+                grid-template-columns: 1fr;
+            }
+
+            .choices-table th,
+            .choices-table td {
+                padding: 6px 4px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>
+        Integrated Secondary Students Selection System (IOSSS)
+        <br>
+        Candidate Application Form
+    </h1>
+
+    <form action="iosss_app_process.php" method="POST">
+
+        <!-- Candidate Details -->
+        <h2>1. Candidate Details</h2>
+
+        <label for="indexno">KCPE Index Number</label>
+        <input
+            type="text"
+            id="indexno"
+            name="indexno"
+            pattern="[0-9]{11}"
+            maxlength="11"
+            placeholder="e.g. 12345678901"
+            required
+        >
+
+        <div class="note">
+            Enter your 11-digit KCPE index number.
+        </div>
+
+
+        <label for="name">Full Name</label>
+        <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Surname Firstname"
+            required
+        >
+
+
+        <label>Sex</label>
+
+        <div class="radio-group">
+            <label>
+                <input
+                    type="radio"
+                    name="sex"
+                    value="Male"
+                    id="sexMale"
+                    required
+                >
+                Male
+            </label>
+
+            <label>
+                <input
+                    type="radio"
+                    name="sex"
+                    value="Female"
+                    id="sexFemale"
+                >
+                Female
+            </label>
+        </div>
+
+        <div class="note" id="sexHint">
+            Select your sex to display the available schools.
+        </div>
+
+
+        <label for="dob">Date of Birth</label>
+        <input
+            type="date"
+            id="dob"
+            name="dob"
+            required
+        >
+
+
+        <label for="pschool">Primary School</label>
+        <input
+            type="text"
+            id="pschool"
+            name="pschool"
+            placeholder="Name of Primary School"
+            required
+        >
+
+
+        <!-- Subject Scores -->
+        <h2>2. Subject Scores (Marks out of 100)</h2>
+
+        <div class="subjects">
+
+            <div>
+                <label for="english">English</label>
+                <input
+                    type="number"
+                    id="english"
+                    name="english"
+                    min="0"
+                    max="100"
+                    required
+                >
+            </div>
+
+            <div>
+                <label for="kiswahili">Kiswahili</label>
+                <input
+                    type="number"
+                    id="kiswahili"
+                    name="kiswahili"
+                    min="0"
+                    max="100"
+                    required
+                >
+            </div>
+
+            <div>
+                <label for="maths">Mathematics</label>
+                <input
+                    type="number"
+                    id="maths"
+                    name="maths"
+                    min="0"
+                    max="100"
+                    required
+                >
+            </div>
+
+            <div>
+                <label for="science">Science</label>
+                <input
+                    type="number"
+                    id="science"
+                    name="science"
+                    min="0"
+                    max="100"
+                    required
+                >
+            </div>
+
+            <div>
+                <label for="sst">Social Studies (SST)</label>
+                <input
+                    type="number"
+                    id="sst"
+                    name="sst"
+                    min="0"
+                    max="100"
+                    required
+                >
+            </div>
+
+        </div>
+
+
+        <!-- School Choices -->
+        <h2>3. Secondary School Choices</h2>
+
+        <table class="choices-table">
+
+            <thead>
+                <tr>
+                    <th>Choice</th>
+                    <th>Secondary School</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>
+                        <label for="choice1">1st Choice</label>
+                    </td>
+
+                    <td>
+                        <select
+                            id="choice1"
+                            name="choice1"
+                            class="school-select"
+                            required
+                            disabled
+                        >
+                            <option value="">-- Select sex first --</option>
+                        </select>
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td>
+                        <label for="choice2">2nd Choice</label>
+                    </td>
+
+                    <td>
+                        <select
+                            id="choice2"
+                            name="choice2"
+                            class="school-select"
+                            required
+                            disabled
+                        >
+                            <option value="">-- Select sex first --</option>
+                        </select>
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td>
+                        <label for="choice3">3rd Choice</label>
+                    </td>
+
+                    <td>
+                        <select
+                            id="choice3"
+                            name="choice3"
+                            class="school-select"
+                            required
+                            disabled
+                        >
+                            <option value="">-- Select sex first --</option>
+                        </select>
+                    </td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+        <div class="note">
+            Select three different secondary schools.
+        </div>
+
+
+        <button type="submit">
+            Submit Application
+        </button>
+
+    </form>
+
+</div>
+
+
+<script>
+
+    const SCHOOLS = {
+
+        Male: [
+            "Alliance High School",
+            "Mang'u High School",
+            "Starehe Boys Centre",
+            "Nairobi School",
+            "Lenana School",
+            "Kagumo High School",
+            "Maranda High School",
+            "Kapsabet Boys High School",
+            "Kabaa High School",
+            "Nakuru Boys High School"
+        ],
+
+        Female: [
+            "Alliance Girls High School",
+            "Kenya High School",
+            "Moi Girls High School Nairobi",
+            "Pangani Girls High School",
+            "Precious Blood Riruta",
+            "Loreto High School Limuru",
+            "Butere Girls High School",
+            "Moi Girls High School Eldoret",
+            "Ng'iya Girls High School",
+            "Bishop Gatimu Ngandu Girls High School"
+        ]
+
+    };
+
+
+    const choiceSelects = [
+        document.getElementById("choice1"),
+        document.getElementById("choice2"),
+        document.getElementById("choice3")
+    ];
+
+    const sexHint = document.getElementById("sexHint");
+
+
+    function populateSchoolChoices(sex) {
+
+        const schools = SCHOOLS[sex] || [];
+
+        choiceSelects.forEach(select => {
+
+            select.innerHTML = "";
+
+            const placeholder = document.createElement("option");
+
+            placeholder.value = "";
+            placeholder.textContent = "-- Select School --";
+
+            select.appendChild(placeholder);
+
+
+            schools.forEach(school => {
+
+                const option = document.createElement("option");
+
+                option.value = school;
+                option.textContent = school;
+
+                select.appendChild(option);
+
+            });
+
+
+            select.disabled = schools.length === 0;
+
+        });
+
+
+        sexHint.textContent =
+            sex === "Male"
+                ? "Showing the 10 boys' schools available for selection."
+                : "Showing the 10 girls' schools available for selection.";
+
+    }
+
+
+    function preventDuplicateChoices() {
+
+        const selectedSchools = choiceSelects.map(select => select.value);
+
+        choiceSelects.forEach(select => {
+
+            const currentValue = select.value;
+
+            Array.from(select.options).forEach(option => {
+
+                if (
+                    option.value !== "" &&
+                    option.value !== currentValue &&
+                    selectedSchools.includes(option.value)
+                ) {
+                    option.disabled = true;
+                } else {
+                    option.disabled = false;
+                }
+
+            });
+
+        });
+
+    }
+
+
+    document
+        .getElementById("sexMale")
+        .addEventListener("change", function () {
+
+            populateSchoolChoices("Male");
+            preventDuplicateChoices();
+
+        });
+
+
+    document
+        .getElementById("sexFemale")
+        .addEventListener("change", function () {
+
+            populateSchoolChoices("Female");
+            preventDuplicateChoices();
+
+        });
+
+
+    choiceSelects.forEach(select => {
+
+        select.addEventListener("change", preventDuplicateChoices);
+
+    });
+
+</script>
+
+</body>
+</html>
+
